@@ -33,10 +33,12 @@ body {
   z-index: 2;
 }
 .failure{
+  width: 50%;
   margin-left: 20%;
   background-color: #F3DAD4;
 }
 .success{
+  width: 50%;
   margin-left: 20%;
   background-color: #B3F3A4;
 }
