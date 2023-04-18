@@ -6,13 +6,6 @@
   const https = require('https');
   const mailchimp = require("@mailchimp/mailchimp_marketing");
 
-  //  eb00808aeb
-  //26aeb6564238662c1003c8bba2fbbeef-us18
-
-  const options = {
-    method:"POST",
-    auth: "djura:26aeb6564238662c1003c8bba2fbbeef-us18"
-  };
   const app = express();
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(express.static('public'));
@@ -43,10 +36,7 @@
 
     const url = 'https://us18.api.mailchimp.com/3.0/lists/eb00808aeb';
 
-    const options = {
-      method: "POST",
-      auth: "Nikola:26aeb6564238662c1003c8bba2fbbeef-us18"
-    }
+    const { options } = require('./keys.js');
 
     const request = https.request(url, options, function(response){
       if (response.statusCode === 200) {
@@ -68,7 +58,7 @@
   app.post("/failure", function(req, res){
     res.redirect("/");
   });
-  
+
 
   app.listen(process.env.PORT || 3000, function(){
     console.log("listening port: 3000");
